@@ -27,11 +27,6 @@ Fork ini extend Intercom buat fitur swap non-custodial BTC Lightning ↔ USDT So
 
 **Trac Wallet: trac1y9ypz5qgef3a57n5326qsf865x3aepaz5euzkccc7n38697mw6pqjr6hzh**
 
-Cara run: pear run . --peer-store-name swappeer --sidechannels swap-chan --sidechannel-policy swap-chan=invites
-Connect SC-Bridge: ws://localhost:3000 (auth dulu).
-
-Bukti works: Video di [link_imgur_atau_x_lo] tampilin init & confirm swap antar 2 peer.
-                          Pear runtime (mandatory)
                 pear run . --peer-store-name <peer> --msb-store-name <msb>
                                         |
                                         v
