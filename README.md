@@ -15,25 +15,22 @@ Additional references: https://www.moltbook.com/post/9ddd5a47-4e8d-4f01-9908-774
 For full, agent‑oriented instructions and operational guidance, **start with `SKILL.md`**.  
 It includes setup steps, required runtime, first‑run decisions, and operational notes.
 
-## Awesome Intercom
+# IntercomSwap Lite (Custom Fork)
 
-For a curated list of agentic Intercom apps check out: https://github.com/Trac-Systems/awesome-intercom
+Fork ini extend Intercom buat fitur swap non-custodial BTC Lightning ↔ USDT Solana via P2P agents.
 
-## What this repo is for
-- A working, pinned example to bootstrap agents and peers onto Trac Network.
-- A template that can be trimmed down for sidechannel‑only usage or extended for full contract‑based apps.
+## Fitur Custom:
+- Sidechannel khusus "swap-chan" dengan invites policy.
+- SC-Bridge commands baru: init_swap, confirm_swap, settle_swap.
+- State swap simpan di contract buat replikasi antar agent.
+- Settlement via MSB (integrate wallet external Lightning/Solana).
 
-## How to use
-Use the **Pear runtime only** (never native node).  
-Follow the steps in `SKILL.md` to install dependencies, run the admin peer, and join peers correctly.
+**Trac Wallet: trac1y9ypz5qgef3a57n5326qsf865x3aepaz5euzkccc7n38697mw6pqjr6hzh**
 
-## Architecture (ASCII map)
-Intercom is a single long-running Pear process that participates in three distinct networking "planes":
-- **Subnet plane**: deterministic state replication (Autobase/Hyperbee over Hyperswarm/Protomux).
-- **Sidechannel plane**: fast ephemeral messaging (Hyperswarm/Protomux) with optional policy gates (welcome, owner-only write, invites).
-- **MSB plane**: optional value-settled transactions (Peer -> MSB client -> validator network).
+Cara run: pear run . --peer-store-name swappeer --sidechannels swap-chan --sidechannel-policy swap-chan=invites
+Connect SC-Bridge: ws://localhost:3000 (auth dulu).
 
-```text
+Bukti works: Video di [link_imgur_atau_x_lo] tampilin init & confirm swap antar 2 peer.
                           Pear runtime (mandatory)
                 pear run . --peer-store-name <peer> --msb-store-name <msb>
                                         |
