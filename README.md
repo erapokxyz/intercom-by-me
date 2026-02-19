@@ -27,4 +27,3 @@ Fork ini extend Intercom buat fitur swap non-custodial BTC Lightning ↔ USDT So
 
 **Trac Wallet: trac1y9ypz5qgef3a57n5326qsf865x3aepaz5euzkccc7n38697mw6pqjr6hzh**
 
-           logic as needed (see `SKILL.md`).
