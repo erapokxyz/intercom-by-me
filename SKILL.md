@@ -728,3 +728,21 @@ Use these repos for deeper troubleshooting or protocol understanding:
 - `main_settlement_bus` (commit `5088921`): https://github.com/Trac-Systems/main_settlement_bus
 - `trac-crypto-api` (commit `b3c781d`): https://github.com/Trac-Systems/trac-crypto-api
 - `trac-wallet` (npm `1.0.1`): https://www.npmjs.com/package/trac-wallet
+## Skill: IntercomSwap Lite
+
+Purpose: Non-custodial P2P swap BTC Lightning ↔ USDT Solana via agents.
+
+How to use:
+- Run app dengan flag --sidechannels swap-chan --sidechannel-policy swap-chan=invites
+- Connect ke SC-Bridge ws://localhost:3000
+- Auth: {"type": "auth", "token": "your_token"}  // Ganti token dari MSB atau custom
+- Init swap: {"type": "init_swap", "from": "BTC_LIGHTNING", "to": "USDT_SOLANA", "amount": 0.01, "agentId": "peerB"}
+- Confirm: {"type": "confirm_swap", "swapId": "generated_id", "signature": "your_sig"}
+- Settle: {"type": "settle_swap", "swapId": "id", "txHash": "lightning_or_solana_tx"}
+
+Requirements: Pear runtime, wallet Lightning/USDT connected external, MSB store active.
+
+Example agent prompt:
+"Gunakan skill IntercomSwap Lite saya untuk init swap 0.01 BTC ke USDT dengan agent peerB, lalu konfirmasi jika match."
+
+Ini bikin app lo agent-usable (Claude/GPT bisa panggil autonomously via SC-Bridge).
